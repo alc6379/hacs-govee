@@ -1,7 +1,7 @@
 import logging
 from abc import abstractmethod
 from dataclasses import dataclass
-from typing import Any, Dict, Optional
+from typing import Dict, Optional
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -41,7 +41,8 @@ class GoveeAbstractLearningStorage(object):
     async def read(self) -> Dict[str, GoveeLearnedInfo]:
         """Read the learning information."""
         _LOGGER.warning(
-            "Implement GoveeAbstractLearningStorage and overwrite write/read methods to persist and restore learned lamp properties."
+            "Implement GoveeAbstractLearningStorage and overwrite write/read methods " +
+            "to persist and restore learned lamp properties."
         )
         return {}
 
@@ -49,12 +50,14 @@ class GoveeAbstractLearningStorage(object):
     async def write(self, learned_info: Dict[str, GoveeLearnedInfo]):
         """Write updated learning information."""
         _LOGGER.warning(
-            "Implement GoveeAbstractLearningStorage and overwrite write/read methods to persist and restore learned lamp properties."
+            "Implement GoveeAbstractLearningStorage and overwrite write/read methods " +
+            "to persist and restore learned lamp properties."
         )
+
 
 class GoveeNoLearningStorage(GoveeAbstractLearningStorage):
     """Use to start without a learning storage.
-    
+
     You may want to use this to check if API key is correct or so.
     This avoids creating warnings about no storage available.
     """
